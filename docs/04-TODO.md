@@ -1,0 +1,78 @@
+# Tasks
+
+- [x] Simplificar Otimizar e a reorganização do preview para kerf, distância segura entre peças, margem externa e lead-in; remover tabs desses formulários, preservar tabs de pedidos existentes e publicar na UNI5 com validação web.
+- [x] Publicar versão de teste na UNI5 e validar pela web login, DXF → preview → pedido → CNC/DXF/PDF.
+- [ ] Substituir o auxiliar local de teste por serviço Node persistente na hospedagem ou VPS e configurar worker/agenda gerenciados antes do uso contínuo. A UNI5 atual encerra o Node após desconexão SSH; a fila está em `sync` apenas para o teste.
+
+- [x] Phase 0 — local Laravel/MySQL setup, internal login, seed, server and database queue validation.
+- [x] Phase 1 — materials, thicknesses, sheets, parts, orders and inventory schema/CRUD.
+- [x] Phase 2 — standalone DXF parser and tests.
+- [x] Phase 3 — queued DXF extraction and polling.
+- [x] Phase 3.5 — kerf offset service and tests (standalone validated; integration deferred to phases 5 and 7).
+- [x] Phase 4 — standalone nesting engine, timeout and geometry tests.
+- [x] Phase 5 — order nesting integration and cut time estimate.
+- [x] Phase 6 — visual arrangement editor and validation.
+- [x] Phase 7 — output DXF generation and download.
+- [x] Phase 8 — inventory consumption and remnant generation.
+- [x] Phase 9 — dashboard and management overview.
+- [x] Phase 10 — utilization and productivity reports.
+- [x] Phase 11 — users, roles and audit history.
+- [x] Arranjo Rápido — batch DXF preview, sheet retry, acceptance and temporary-file cleanup.
+- [x] Arranjo Rápido — more than eight DXFs, per-DXF quantities and automatic distribution across available sheets.
+- [x] New five-tab navigation, material thickness presets on sheet form.
+- [x] Otimizar — combine uploaded and catalog pieces, interactive preview, automatic reorganization and export to editable orders.
+- [x] Export-time stock consumption and automatic remnant registration, consistent with later order edits.
+- [x] Pedidos — managerial dates, times and automatic sheet/machine costs.
+- [x] Corrigir erro genérico no preview DXF, validar arquivo aberto e retestar fluxo local completo.
+- [x] Otimizar — substituir lista integral de peças por busca e adição ao arranjo.
+- [x] Otimizar — exemplos DXF de quadrado, círculo e triângulo, preview visível sem rolagem e salvamento automático ao arrastar.
+- [x] Substituir exportação por CNC no padrão do arquivo de referência, exibir trajetos do CNC no preview e remover os exemplos anteriores.
+- [x] Criar no MySQL local o pedido `teste` com 3 unidades de cada um dos 3 DXFs fornecidos em chapa de 3.000 × 1.200 mm.
+- [ ] Antes de corte físico, configurar kerf e custos reais e validar um CNC na controladora da máquina.
+- [x] Otimizar — desfazer/refazer posição e ordem de corte, ajustar kerf e margem, exibir código/ordem sobre as peças e percentual usado abaixo do tempo.
+- [x] Otimizar — preencher primeiro a lateral esquerda e avançar para a direita, buscando manter uma faixa inteira de retalho à direita.
+- [x] Otimizar — encaixar contornos detalhados com validação geométrica completa e melhorar o retalho do Pedido #5 sem perder peças.
+- [x] Pedidos — baixar PDF A3 do arranjo salvo e reorganizar visualmente um pedido pronto antes de confirmar novo CNC.
+- [x] Otimizar — remover folga independente, aplicar largura do corte à separação real dos contornos e manter a margem como área segura de corte.
+- [x] Otimizar — compactar os contornos do Pedido #5 e validar novo retalho, estoque e trajetos CNC.
+- [x] Pedidos — adicionar exclusão com reversão segura do estoque antes da produção e trilha de auditoria.
+- [x] Corte físico — configurar espaçamento térmico e lead-in por espessura, tabs por pedido, sequência furos/externos, CNC e DXF técnico compartilhando trajetos, com testes.
+- [ ] Calibrar os novos espaçamentos, entradas e tabs para material/gás/controladora reais e validar o CNC gerado antes do primeiro corte físico.
+- [x] Pedidos #8/#9 — aplicar os 3 mm definidos pelo usuário como folga mínima entre contornos, reotimizar ambas as chapas, validar geometria e trajetos, regenerar CNC/DXF e sincronizar retalhos sem nova baixa de estoque.
+- [x] Corrigir a precisão do contorno de retalhos e distinguir rejeição geométrica de falta de resposta do motor na tela Otimizar.
+- [x] Chapa 2 do Pedido #9 — realocar perfil saliente para uma cavidade, validar os 3 mm de folga, aumentar o retalho e regenerar CNC/DXF sem nova baixa de estoque.
+- [x] Corrigir a impressão de contornos colados no Pedido #8 — medir a folga real do par mostrado, afinar os traços do preview e permitir zoom/panorâmica sem mover peças.
+- [x] Substituir o benchmark dos Pedidos #8/#9 pelo CNC manual original das 35 peças, conforme solicitação posterior do usuário; preservar o histórico em backup antes da limpeza local.
+- [x] Um pedido para o lote completo, mesmo com mais de uma chapa; manter CNC, DXF, PDF, edição, estoque e retalho por chapa interna.
+- [x] Limpar pedidos, peças e chapas cadastrados no MySQL local; cadastrar apenas os quatro DXFs e duas chapas novas de 1.500 × 3.000 mm, criar o pedido `teste` e medir o consumo líquido contra o CNC manual.
+- [x] Melhorar o motor automático no lote `teste` até caber em uma chapa de 1.500 × 3.000 mm com 3 mm de folga. A correção da ordem dos contornos DXF e a busca por fileiras/colunas posicionam 35/35 peças em uma chapa; Pedido #12 e CNC foram validados.
+- [ ] Antes de prometer ganho monetário sobre o CNC manual, confirmar se a faixa livre de 28,062 mm é reaproveitável na produção. Ambos os arranjos usam uma chapa física; não houve redução de 12% frente ao manual.
+- [ ] Antes de corte físico, medir o kerf real na máquina e validar o CNC regenerado na controladora; a folga de 3 mm não é uma medição do kerf.
+- [ ] Editor de desenho — definir modelo vetorial editável para alterar medidas, furos e contornos de DXFs sem perder a origem; validar geometria e regenerar arranjo/CNC após cada edição.
+- [x] Corrigir o erro MySQL 1038 no painel e na lista de pedidos: indexar `created_at`, consultar apenas os campos exibidos e validar as telas com os dados locais.
+- [x] Aplicar folga mínima de 10 mm a todas as espessuras, reotimizar o Pedido #12 em duas chapas internas e validar distâncias, estoque, CNC, DXF e PDF.
+- [ ] Área segura avançada — permitir zonas bloqueadas na chapa para grampos e outros obstáculos físicos.
+- [x] Aplicar a variante escura do kit DashStack à navegação, painel, formulários, tabelas e acesso; padronizar botões e facilitar ações de Otimizar, estoque e pedidos.
+- [x] Modernizar o PDF A3 por chapa com o design NestLaser, desenho compensado, lista de códigos/quantidades, áreas, pesos estimados, tempo e retalho; cadastrar densidade opcional por material.
+- [x] Criar o Pedido #13 com os dez DXFs e 31 peças confirmadas em uma chapa 1.500 × 3.000 mm, exportar CNC/PDF e medir o resultado contra o relatório manual.
+- [x] Refazer o lote de 31 peças com a folga de 2,1 mm inferida do CNC manual, ampliar a busca, validar 31/31 em uma chapa e salvar o Pedido #15 com retalho retangular maior que o do manual.
+- [x] Simplificar o formulário de chapa para material, espessura, largura e altura; preencher internamente os campos de estoque.
+- [x] Ao cadastrar uma peça sem nome, usar o nome do DXF sem extensão; preservar o nome atual quando não houver novo arquivo na edição.
+- [x] Pedidos prontos antes do corte — acrescentar DXFs ou quantidades de peças cadastradas, pré-visualizar a reotimização, confirmar no mesmo pedido, redistribuir entre chapas internas e atualizar CNC, PDF, estoque e retalhos com reversão transacional.
+- [x] Editar arranjo — listar peças e quantidades atuais, permitir redução/remoção, adicionar por modal DXF ou busca, mostrar kerf, margem, espaçamento térmico, entrada de corte e tabs; reotimizar a lista completa antes de confirmar no mesmo pedido.
+- [x] Simplificar lista de peças para nome, formato e dimensões; separar detalhe do pedido em Pedido, Gestão e Custos; retirar o cartão de medidas de corte e posicionar os botões Voltar no cabeçalho à direita.
+- [x] Estudar o CNC manual A36 19,05 mm e os DXFs do lote de 31 peças; permitir encaixe automático nos vazios internos, selecionar o maior retalho e medir a proposta contra o manual sem alterar o pedido salvo.
+- [ ] Antes de transformar o ganho geométrico medido do Pedido #15 em economia monetária, confirmar o reaproveitamento do retalho e calibrar kerf, folga e lead-in reais na máquina. Medidas atuais no SNAPSHOT; ambos os arranjos usam uma chapa física.
+- [x] Separar na tela do pedido a área das peças, o retalho inteiro e os vazios/furos; esclarecer que a área fixa das peças não mede a qualidade do encaixe.
+- [x] Evoluir a busca com regiões de contato simultâneo, remoção/reinserção de grupos, preenchimento de furos reais e preservação do arranjo salvo; validar e atualizar o Pedido #15 com comparação ao manual.
+- [x] Corrigir códigos sobrepostos no preview e ordenar o CNC por dependência de contenção para terminar peças internas antes de soltar o furo hospedeiro.
+- [x] Permitir busca automática por diagonais e ângulos fracionários, com alinhamento entre bordas, reinserção de grupos, preservação de incumbentes fracionários e validação de folga/CNC.
+- [ ] Ampliar o benchmark para outros lotes e medidas antes de generalizar o ganho observado; estudar buscas maiores e trocas entre cavidades sem regressão de tempo, folga ou quantidade.
+- [x] Corrigir o preview do site UNI5 com worker de cálculo no PC via SFTP de saída, mensagem clara para PC desconectado e inicialização automática no Windows; validar envio real de DXF, preview, peça posicionada e PDF no site.
+- [ ] Antes de operação independente do PC, migrar o motor para hospedagem com processo persistente supervisionado e armazenamento adequado; repetir a validação completa de CNC e segurança na controladora.
+- [x] Desativar a execução automática do motor no PC e encerrar os processos locais; iniciar somente quando o usuário solicitar no chat (decisão de 2026-10-08).
+- [x] Iniciar sob solicitação uma tarefa manual sem gatilhos automáticos para os testes dos clientes e confirmar preview real no site (2026-10-09).
+- [x] Corrigir o término do worker durante a sessão manual: reconectar após falha SFTP e reiniciar o processo filho sem voltar a ligar gatilhos automáticos; validar recuperação forçada, PDF web e cálculo de nesting pela ponte.
+- [x] Cadastrar chapas disponíveis no servidor para testes: sete novas de Aço Carbono e Aço Inox em 1, 2 e 3 mm; confirmar que a tela Otimizar as considera disponíveis (2026-10-09).
+- [x] Auditar a instabilidade da sessão manual: evitar worker órfão/duplicado, reconectar SFTP, não criar Node duplicado por health lento, ignorar cancelamento de pedido e limpar fila expirado; validar respostas sucessivas, PDF e tarefa sem gatilhos.
+- [x] Ampliar a busca angular automática para peças ortogonais com reentrâncias e peças simples que só cabem inclinadas; tentar diferentes ordens e direções para lotes incompletos, preservando folgas e a melhor sobra validada.

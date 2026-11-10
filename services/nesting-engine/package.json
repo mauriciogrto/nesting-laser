@@ -1,0 +1,16 @@
+{
+  "name": "nesting-laser-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "clipper-lib": "^6.4.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "polygon-clipping": "^0.15.7"
+  }
+}
