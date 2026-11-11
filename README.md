@@ -60,4 +60,4 @@ A suíte PHP usa o motor Node em execução. Configure o mesmo `NESTING_ENGINE_T
 
 Os testes passaram a usar `DXF_PYTHON_BIN`, com `python3` como padrão, no lugar de um caminho de ambiente local. As asserções foram preservadas.
 
-[Estudo de caso e arquitetura](https://grxsistemas.com.br/portfolio/nesting-laser)
+[Estudo de caso e arquitetura](https://grxsistemas.com.br/portifolio/nesting-laser)
